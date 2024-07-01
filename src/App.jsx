@@ -1,16 +1,16 @@
-
-
+import { useState } from 'react'
 import NavBar from './componets/NavBar/NavBar'
 
 
 
-function App() {
- 
 
+function App() {
+
+const [cartCount] = useState(6)
   return (
-    <> 
-   <NavBar></NavBar>
-     </>
+    <>
+      <NavBar cartCount={cartCount }/>
+    </>
   )
 }
 
