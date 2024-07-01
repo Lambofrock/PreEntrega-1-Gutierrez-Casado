@@ -8,8 +8,8 @@ function NavBar({ cartCount }) {
 
         <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div>...</div>
-                 <img className="rounded"  width="60" height="60" src="img\Logo (1).jpg" alt="logo" />
             <div className="container-fluid">
+                 <img className="rounded"  width="60" height="60" src="img\Logo (1).jpg" alt="logo" />
            
                 <a className="navbar-brand" href="#">Hey Pulga !</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@ function NavBar({ cartCount }) {
                             <a className="nav-link disabled" aria-disabled="true">Calidad en cada fibra</a>
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
+                    <form className="d-flex " role="search">
                       <CardWidget cartCount={cartCount}/>
                     </form>
                 </div>  
