@@ -8,7 +8,9 @@ function Contador() {
     <div>
         <div>
             <button onClick={()=>{setCont(cont -1)}} >-</button>
-            <p>{cont}</p>
+            <p>{cont}
+            https://developers.mercadolibre.com.ar/es_ar/items-y-busquedas
+            </p>
             <button onClick={()=>{setCont(cont +1 )}} >+
             </button>
         </div>
@@ -18,4 +20,4 @@ function Contador() {
 
 export default Contador
 
-https://developers.mercadolibre.com.ar/es_ar/items-y-busquedas
+

@@ -1,4 +1,4 @@
-const productos = [
+const products = [
     
     {
         id: "1",
@@ -6,7 +6,7 @@ const productos = [
         price:10000,
         category:"bicicletas",
 
-    }
+    },
     {
         id: "2",
         name:"bicicleta montaña",
@@ -17,13 +17,15 @@ const productos = [
 ];
 
 export const getProducts = () => {
-retur new Promise ((resolve,)=>{
+return new Promise ((resolve,)=>{
     setTimeout(()=>{
-        resolve(productos)
-    },2500)
-})
+        resolve(products)
+    },2500)})
 }
 
 export const getProductById = () => {
+
+}
+export const getProductByCategory = () => {
 
 }

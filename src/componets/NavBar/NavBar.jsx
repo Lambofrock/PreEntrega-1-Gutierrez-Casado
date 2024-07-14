@@ -1,7 +1,7 @@
 import React from "react"
 import CardWidget from "../Cardwidget/CardWidget"
 
-console.log("holiswi")
+
 
 function NavBar({ cartCount }) {
     return (
@@ -11,7 +11,7 @@ function NavBar({ cartCount }) {
             <div className="container-fluid">
                  <img className="rounded"  width="60" height="60" src="img\Logo (1).jpg" alt="logo" />
            
-                <a className="navbar-brand" href="#">Hey Pulga !</a>
+                <a className="navbar-brand" href="/category/celular">Hey Pulga !</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -21,7 +21,7 @@ function NavBar({ cartCount }) {
                             <a className="nav-link active" aria-current="page" href="#">Inicio</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Tienda</a>
+                            <a className="nav-link" href="">Tienda</a>
                         </li>
                     
                         <li className="nav-item">
@@ -29,7 +29,7 @@ function NavBar({ cartCount }) {
                         </li>
                     </ul>
                     <form className="d-flex " role="search">
-                      <CardWidget cartCount={cartCount}/>
+                      <CardWidget  cartCount={" "+cartCount}/>
                     </form>
                 </div>  
             </div>
