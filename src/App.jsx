@@ -19,7 +19,7 @@ function App() {
       <NavBar cartCount={cartCount} />
       <Routes>
         <Route path='/' element={<ItemListContainer greetings={"Lista de productos"} />} />
-        <Route path='/category/:id' element={<ItemListContainer />} />
+        <Route path='/category/:category' element={<ItemListContainer />} />
         <Route path='/item/:id ' element={<ItemDetailContainer />}/> 
       </Routes>
 

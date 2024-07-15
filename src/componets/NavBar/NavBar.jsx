@@ -21,10 +21,10 @@ function NavBar({ cartCount }) {
                             <Link className="nav-Link active" aria-current="page" to="/category/celular">poleron</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-Link active" aria-current="page"to="/category/polera">polera</Link>
+                            <Link className="nav-Link active" aria-current="page"to="/category/tablet">polera</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-Link active" to="/category/chaqueta">chaqueta</Link>
+                            <Link className="nav-Link active" to="/category/computador">chaqueta</Link>
                         </li>
                     
                         <li className="nav-item">
