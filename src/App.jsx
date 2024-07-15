@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react'
 import NavBar from './componets/NavBar/NavBar'
 import ItemListContainer from './componets/itemListContainer/ItemListContainer'
 import Contador from './componets/Contador/Contador'
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
- 
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ItemDetailContainer from './componets/ItemDetailContainer/ItemDetailContainer'
+
 
 
 function App() {
   document.body.style = 'background: black';
- 
+
 
 
   const [cartCount] = useState(0)
@@ -16,10 +17,15 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar cartCount={cartCount} />
-  
+      <Routes>
+        <Route path='/' element={<ItemListContainer greetings={"Lista de productos"} />} />
+        <Route path='/category/:id' element={<ItemListContainer />} />
+        <Route path='/item/:id ' element={<ItemDetailContainer />}/> 
+      </Routes>
+
 
       <Contador />
-   
+
     </BrowserRouter>
   )
 

@@ -1,22 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Item = ({ products }) => {
-
+const Item = ({id,name,price,category,img}) => {
   return (
-    <div>
-      <div className="row">
-        <div className="col-sm-6 mb-3 mb-sm-0">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title"> </h5>
-              <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" className="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <article>
+<h1> {name} </h1>
+<img src={img} style={{width:100}} />
+<p>categoria: {category} </p>
+<h2>{price} </h2>
+<Link to={`/detail/${id}`}>ver detalle</Link>
+<hr />
+    </article>
   )
 }
 
-export default Item
+export default Item 
