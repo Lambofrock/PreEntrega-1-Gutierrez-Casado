@@ -10,7 +10,7 @@ function Contador() {
             <hr />
             <button onClick={()=>{setCont(cont -1)}} >-</button>
             <p>{cont}<br/>
-            https://developers.mercadolibre.com.ar/es_ar/items-y-busquedas
+          
             </p>
             <button onClick={()=>{setCont(cont +1 )}} >+
             </button>

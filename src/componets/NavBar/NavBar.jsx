@@ -18,17 +18,17 @@ function NavBar({ cartCount }) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-Link active" aria-current="page" to="/category/celular">poleron</Link>
+                            <Link className="nav-Link active" style={{paddingLeft: 13, textDecoration: 'none', color:"white"}} aria-current="page" to="/category/computador">poleron</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-Link active" aria-current="page"to="/category/tablet">polera</Link>
+                            <Link className="nav-Link active" style={{paddingLeft: 13, textDecoration: 'none', color:"white"}} aria-current="page"to="/category/tablet">polera</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-Link active" to="/category/computador">chaqueta</Link>
+                            <Link className="nav-Link active" style={{paddingLeft: 13, textDecoration: 'none', color:"white"}} to="/category/celular">chaqueta</Link> 
                         </li>
                     
                         <li className="nav-item">
-                            <a className="nav-Link disabled" aria-disabled="true"> <strong> Elige tu Prenda!</strong> </a>
+                            <a className="nav-Link disabled" style={{paddingLeft: 13, textDecoration: 'none', color:"white"}} aria-disabled="true"> <strong> Elige tu Prenda!</strong> </a>
                         </li>
                     </ul>
                     <form className="d-flex " role="search">
