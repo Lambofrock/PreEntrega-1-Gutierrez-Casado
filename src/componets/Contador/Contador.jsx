@@ -7,10 +7,9 @@ function Contador() {
     return (
     <div>
         <div>
-            <hr />
+
             <button onClick={()=>{setCont(cont -1)}} >-</button>
             <p>{cont}<br/>
-          
             </p>
             <button onClick={()=>{setCont(cont +1 )}} >+
             </button>
