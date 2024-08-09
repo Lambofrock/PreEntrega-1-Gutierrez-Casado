@@ -4,43 +4,7 @@ import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import './ItemListContainer.css'
 
-function ItemDetailContainer ({greetings}) {
-  const [products,setProduct] = useState ([])
-  const   [loading,setLoading ] = useState(true)
-  const {categoryId} = useParams ()
-
-  useEffect (()=>{
-    setLoading(true)
-
-    const collectionRef = categoryId
-    ? query (collection(db), "productos"  ), where ("category","==", categoryId) : collection ( db,"productos")
-
-    getDocs(collectionRef)
-    .then ( (querySnapshot)=>{console.log(response)})
-const productos = querySnapshot.docs.map((doc)=> {return {id:doc.id,...doc.data()}})
-    .catch ( error => {
-      console.log(error)
-      .finally(()=>{
-        setLoading(false)
-      })
-    })})}
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-{
-
-  /*const ItemListContainer = ({greetings}) => {
+const ItemListContainer = ({greetings}) => {
     const [products, setProducts] = useState([])
     const {category} = useParams ()
     console.log(category)
@@ -71,7 +35,7 @@ const productos = querySnapshot.docs.map((doc)=> {return {id:doc.id,...doc.data(
     
 
       </div>
-    )}*/}
+    )}
 
 export default ItemListContainer
 
