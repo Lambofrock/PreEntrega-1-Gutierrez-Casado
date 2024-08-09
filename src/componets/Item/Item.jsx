@@ -6,7 +6,11 @@ const Item = ({ id, name, price, category, img }) => {
     <article >
 
       <div >
-       
+        <div className="container text-center">
+          <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+   
+            </div>
+
             <div className="card col" style={{ width: 300 }}>
               <img src={img} className="card-img-top" alt="..." />
               <div className="card-body">
@@ -18,8 +22,8 @@ const Item = ({ id, name, price, category, img }) => {
             </div>
           </div>
 
- 
-       
+        </div>
+
     </article>
   )
 }

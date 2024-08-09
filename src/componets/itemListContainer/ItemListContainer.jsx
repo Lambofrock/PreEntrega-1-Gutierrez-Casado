@@ -4,39 +4,74 @@ import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import './ItemListContainer.css'
 
+function ItemDetailContainer ({greetings}) {
+  const [products,setProduct] = useState ([])
+  const   [loading,setLoading ] = useState(true)
+  const {categoryId} = useParams ()
 
-const ItemListContainer = ({greetings}) => {
-  const [products, setProducts] = useState([])
-  const {category} = useParams ()
-  console.log(category)
+  useEffect (()=>{
+    setLoading(true)
 
-  useEffect(() => {
-    if(!category) {
+    const collectionRef = categoryId
+    ? query (collection(db), "productos"  ), where ("category","==", categoryId) : collection ( db,"productos")
 
-      getProducts().
-      then((res) => {
-        setProducts(res)
-      }).catch(() => console.log(err))
-    }else{
-      getProductsByCategory(category)
-      .then((res)=>{
-        setProducts (res)
+    getDocs(collectionRef)
+    .then ( (querySnapshot)=>{console.log(response)})
+const productos = querySnapshot.docs.map((doc)=> {return {id:doc.id,...doc.data()}})
+    .catch ( error => {
+      console.log(error)
+      .finally(()=>{
+        setLoading(false)
       })
-      .catch((err)=>console.log(err))
-    }
-  
-  }, [category])
+    })})}
 
 
-  return (
-    <div>
-     <h1> {greetings} </h1>
-      <ItemList className="cuadro" products={products} />
-   
 
-    </div>
-  )
-}
+
+
+
+
+
+
+
+
+
+
+    
+{
+
+  /*const ItemListContainer = ({greetings}) => {
+    const [products, setProducts] = useState([])
+    const {category} = useParams ()
+    console.log(category)
+
+    useEffect(() => {
+      if(!category) {
+
+        getProducts().
+        then((res) => {
+          setProducts(res)
+        }).catch(() => console.log(err))
+      }else{
+        getProductsByCategory(category)
+        .then((res)=>{
+          setProducts (res)
+        })
+        .catch((err)=>console.log(err))
+      }
+    
+    }, [category])
+
+
+    return (
+      <div>
+      <h1> {greetings} </h1>
+
+        <ItemList  products={products} />
+    
+
+      </div>
+    )}*/}
 
 export default ItemListContainer
 
