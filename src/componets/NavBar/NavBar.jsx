@@ -31,6 +31,10 @@ function NavBar() {
                             <Link className="nav-Link active" style={{ paddingLeft: 13, textDecoration: 'none', color: "white" }} to="/category/chaqueta">chaqueta</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-Link active" style={{ paddingLeft: 13, textDecoration: 'none', color: "white" }} to="/Carrito">carrito</Link>
+                        </li>
+
+                        <li className="nav-item">
                             <a className="nav-Link disabled" style={{ paddingLeft: 13, textDecoration: 'none', color: "white" }} aria-disabled="true"> <strong> Elige tu Prenda!</strong> </a>
                         </li>
                     </ul>
