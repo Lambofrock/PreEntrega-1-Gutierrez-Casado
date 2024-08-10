@@ -3,7 +3,11 @@ import CardWidget from "../Cardwidget/CardWidget"
 import { Link } from "react-router-dom"
 
 
-function NavBar({ cartCount }) {
+function NavBar( ) {
+   
+
+    
+
     return (
 
         <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -32,7 +36,7 @@ function NavBar({ cartCount }) {
                         </li>
                     </ul>
                     <form className="d-flex " role="search">
-                      <CardWidget  cartCount={" "+cartCount}/>
+                      <CardWidget/>
                     </form>
                 </div>  
             </div>

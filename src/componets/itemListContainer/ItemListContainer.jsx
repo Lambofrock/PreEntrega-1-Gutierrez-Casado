@@ -1,41 +1,41 @@
 import { useEffect, useState } from "react"
-import { getProducts, getProductsByCategory,  } from "../../asyncMock"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import './ItemListContainer.css'
+import { db } from "../../services/firebase"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
-const ItemListContainer = ({greetings}) => {
-    const [products, setProducts] = useState([])
-    const {category} = useParams ()
-    console.log(category)
 
-    useEffect(() => {
-      if(!category) {
 
-        getProducts().
-        then((res) => {
-          setProducts(res)
-        }).catch(() => console.log(err))
-      }else{
-        getProductsByCategory(category)
-        .then((res)=>{
-          setProducts (res)
+const ItemListContainer = ({ greetings }) => {
+  const [products, setProducts] = useState([])
+  const [cargando, setCargando] = useState(true)
+  const { category } = useParams()
+
+  useEffect(() => {
+    const collectionRef = category
+      ? query(collection(db, "products"), where("category", "==", category)) : collection(db, "products")
+    getDocs(collectionRef)
+      .then((querySnapshot) => {
+        const products = querySnapshot.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() }
         })
-        .catch((err)=>console.log(err))
-      }
-    
-    }, [category])
+        setProducts(products)
+      })
+  })
 
 
-    return (
-      <div>
+
+  return (
+    <div>
       <h1> {greetings} </h1>
 
-        <ItemList  products={products} />
-    
+      <ItemList products={products} />
 
-      </div>
-    )}
+
+    </div>
+  )
+}
 
 export default ItemListContainer
 

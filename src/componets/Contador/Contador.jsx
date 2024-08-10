@@ -1,21 +1,23 @@
 
 import { useState } from "react"
 
-function Contador() {
-    const [cont,setCont] = useState(0)
-
+function Contador({stock, valorInicial=1 ,onAdd}) {
+    const [cont, setCont] = useState(valorInicial)
+    const sumar = () => {if (stock>cont){ setCont (cont =>cont + 1) }  }
+    const restar = () => { if(cont>1){setCont(cont - 1) }}
     return (
-    <div>
         <div>
+            <div>
 
-            <button onClick={()=>{setCont(cont -1)}} >-</button>
-            <p>{cont}<br/>
-            </p>
-            <button onClick={()=>{setCont(cont +1 )}} >+
-            </button>
+                <button onClick={restar} >-</button>
+                <h3>{cont} <br/></h3>
+                <button onClick={sumar} >+
+                </button>
+                <button></button>
+
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Contador

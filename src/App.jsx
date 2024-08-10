@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import NavBar from './componets/NavBar/NavBar'
 import ItemListContainer from './componets/itemListContainer/ItemListContainer'
-import Contador from './componets/Contador/Contador'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ItemDetailContainer from './componets/ItemDetailContainer/ItemDetailContainer'
+import { createContext } from 'react'
+import { CartContext } from './context/CartContext'
+export const Contexto = createContext()
+
 
 
 
@@ -11,22 +14,23 @@ function App() {
   document.body.style = 'background: black';
 
 
-
-  const [cartCount] = useState(0)
+  const [cartCount,setCartCount] = useState([])
 
   return (
     <BrowserRouter>
-      <NavBar cartCount={cartCount} />
-      <Routes>
-        <Route path='/' element={<ItemListContainer greetings={"Lista de productos"} />} />
-        <Route path='/category/:category' element={<ItemListContainer />} />
-        <Route path='/detail/:id' element={<ItemDetailContainer />}/> 
+   <CartContext.Provider value= {{cartCount,setCartCount}}>
 
-      </Routes>
+        <NavBar />
 
+        <Routes>
 
-      <Contador />
+          <Route path='/' element={<ItemListContainer greetings={"Lista de productos"} />} />
+          <Route path='/category/:category' element={<ItemListContainer />} />
+          <Route path='/detail/:id' element={<ItemDetailContainer />} />
 
+        </Routes>
+   
+        </CartContext.Provider>
     </BrowserRouter>
   )
 

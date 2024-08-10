@@ -6,7 +6,7 @@ const Item = ({ id, name, price, category, img }) => {
     <article >
 
       <div >
-        <div className="container text-center">
+        <div style={{paddingTop:20}} className="container text-center">
           <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
    
             </div>
@@ -28,11 +28,5 @@ const Item = ({ id, name, price, category, img }) => {
   )
 }
 
-{/* 
-  <h1> {name} </h1>
-<img src={img} style={{width:100}} />
-<p>categoria: {category} </p>
-<h2>{price} </h2>
-*/}
 
 export default Item 
