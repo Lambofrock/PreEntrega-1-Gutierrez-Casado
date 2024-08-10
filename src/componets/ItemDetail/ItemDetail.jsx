@@ -7,20 +7,22 @@ const ItemDetail = ({ name, img, category, description, price, stock, id }) => {
   const { cartCount, setCartCount, cart } = useContext(CartContext)
   console.log(cartCount)
   const [cont, setCont] = useState(1)
-  const sumar = () => {if (stock>cont){ setCont (cont =>cont + 1) }  }
-  const restar = () => { if(cont>1){setCont(cont - 1) }}
-const cantidad=cont;
+  const sumar = () => { if (stock > cont) { setCont(cont => cont + 1) } }
+  const restar = () => { if (cont > 1) { setCont(cont - 1) } }
+  const cantidad = cont;
   const handleAgregar = () => {
-    const productoAgregado = {name, img, category, description, price, cantidad, id };
-    if (cartCount.find((products)=> products.id === productoAgregado.id)){console.log("esta en el carrito")} else{console.log("no esta")}setCartCount([cantidad,...cartCount,productoAgregado])
-   
+    const productoAgregado = { name, img, category, description, price, cantidad, id };
+    if (cartCount.find((products) => products.id === productoAgregado.id)) { console.log("esta en el carrito") } else { console.log("no esta") } setCartCount([cantidad, ...cartCount, productoAgregado])
+
+  const nuevoCarrito = [...cartCount];
+  const estaEnElCarrito = nuevoCarrito.find((producto) => producto.id === productoAgregado.id);
+  if (estaEnElCarrito) {
+    estaEnElCarrito.cantidad = estaEnElCarrito.cantidad + cantidad ; setCartCount(nuevoCarrito)
+  } else {
+    setCartCount([...cartCount, productoAgregado]);
+  }  }
 
 
-
-  }
-//const getTotalQuantity = ()=>{
-  //let accu = 0;}
-  
   return (
     <div>
       <article>
