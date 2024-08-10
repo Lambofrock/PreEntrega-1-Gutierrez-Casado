@@ -12,13 +12,14 @@ const ItemDetail = ({ name, img, category, description, price, stock, id }) => {
 const cantidad=cont;
   const handleAgregar = () => {
     const productoAgregado = {name, img, category, description, price, cantidad, id };
-   // if (cartCount.find((products)=> products.id === productoAgregado.id)){console.log("esta en el carrito")} else{console.log("no esta")}setCartCount([cantidad,...cartCount,productoAgregado])
-   const nuevoCarrito = []
+    if (cartCount.find((products)=> products.id === productoAgregado.id)){console.log("esta en el carrito")} else{console.log("no esta")}setCartCount([cantidad,...cartCount,productoAgregado])
+   
 
 
 
   }
-
+//const getTotalQuantity = ()=>{
+  //let accu = 0;}
   
   return (
     <div>
