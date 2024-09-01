@@ -1,0 +1,26 @@
+.tarjeta-producto {
+    background-color: rgb(228, 228, 228);
+}
+
+.card-img-top {
+    height: 300px;
+
+}
+
+.fondo {
+    padding: 5px;
+}
+
+.color-boton {
+    background-color: rgba(0, 0, 0, 0.927);
+    color: white;
+    cursor: pointer;
+
+}
+
+.color-boton:hover {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}

@@ -1,0 +1,28 @@
+.nav-inactive {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-inline: 10px;
+    text-decoration: 'none';
+    color: white;
+    background-color: black;
+    border-radius: 7px;
+    margin-inline: 5px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.active {
+
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-inline: 10px;
+    border-radius: 7px;
+    margin-inline: 5px;
+    text-decoration: none;
+    text-transform: capitalize;
+    border: 3px solid black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+
+}

@@ -6,15 +6,18 @@ import { db } from "../../services/firebase"
 import { collection, getDocs, query, where } from "firebase/firestore"
 
 
-
 const ItemListContainer = ({ greetings }) => {
   const [products, setProducts] = useState([])
-  const [cargando, setCargando] = useState(true)
+  //const [cargando, setCargando] = useState(true)
   const { category } = useParams()
-
+/*   useEffect (()=>{
+    getProducts ().then ((res)=> {
+     setProducts(res)
+    })}, []) 
+    */
   useEffect(() => {
     const collectionRef = category
-      ? query(collection(db, "products"), where("category", "==", category)) : collection(db, "products")
+      ? query(collection(db, "ropaHeyPulga"), where("category", "==", category)) : collection(db, "ropaHeyPulga")
     getDocs(collectionRef)
       .then((querySnapshot) => {
         const products = querySnapshot.docs.map((doc) => {
@@ -23,8 +26,7 @@ const ItemListContainer = ({ greetings }) => {
         setProducts(products)
       })
   })
-
-
+ 
 
   return (
     <div>
@@ -50,27 +52,3 @@ export default ItemListContainer
 
 
 
-
-
-{/*import { useEffect,useState } from "react"
-import { getProducts} from "../../asyncMock"
-import Item from "../Item/Item"
-import ItemList from "../ItemList/ItemList"
-
-xonar ItemListContainer({greetings}) {
-  const [products,setProducts] = useState ([])
-useEffect (()=>{
- getProducts ().then ((res)=> {
-  setProducts(res)
- })}, []) 
-
-  return (
-    <>
-    <ItemList products={products}/>
-
-    <Item/>
-    </> 
-  )
-}
-
-export default ItemListContainer*/}

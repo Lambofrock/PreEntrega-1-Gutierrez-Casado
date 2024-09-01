@@ -1,5 +1,4 @@
-import{addDoc,collection } from "firebase/firestore";
-import { db } from "./services/firebase";
+/* 
 
 const products = [
     {
@@ -107,4 +106,4 @@ const products = [
     {
       addDoc(collection(db,"products"),product);
     })
-  }
+  } */

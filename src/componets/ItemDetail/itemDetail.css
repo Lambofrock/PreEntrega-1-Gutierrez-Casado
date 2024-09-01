@@ -1,0 +1,22 @@
+
+.stock{
+    display: flex;
+}
+.boton-stock{
+    padding-inline: 10px;
+    height: min-content;
+    border-radius: 5px;
+    margin: 5px;
+  
+}
+.boton-stock-final{
+    padding-inline: 10px;
+    height: min-content;
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+    background-color: black;
+}
+.num-stock{
+    margin: 4px;
+}
