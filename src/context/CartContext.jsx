@@ -4,7 +4,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
-    console.log([cart])
+   
     const isInCart = (id) => {
         return cart.some(prod => prod.id === id)
     }

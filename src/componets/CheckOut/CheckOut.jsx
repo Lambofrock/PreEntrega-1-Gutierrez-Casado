@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { db } from "../../services/firebase"
-import { addDoc, collection, documentId, getDocs, where, WriteBatch  } from "firebase/firestore"
+import { addDoc, collection, documentId, getDocs, query, where, WriteBatch  } from "firebase/firestore"
 import { useCart } from "../../hooks/useCart"
 import './CheckOut.css'
 
@@ -28,39 +28,48 @@ const checkOut = () => {
       }
 
       const ids = cart.map((item) => item.id)
+
       const productRef = collection(db, "ropaHeyPulga")
+
       const productAddedFromFirestore = await getDocs(
         query(productRef, where(documentId(), "in", ids)))
+
       const { docs } = productAddedFromFirestore;
 
-      const outOfStock = []
-      const batch = WriteBatch(db)
-      docs.forEach(doc => {
+        const outOfStock = []
+
+    const batch = WriteBatch(db)
+       
+    docs.forEach((doc) => {
         const dataDoc = doc.data();
         const stockDB = dataDoc.stock;
         const productAddedToCart = cart.find((prod) => prod.id === doc.id);
         const productQuantity = productAddedToCart?.quantity;
-        if (stockDB >= productQuantity) { batch.update(doc.ref, { stock: stockDB - productQuantity }) }
+
+        if (stockDB >= productQuantity) { 
+          batch.update(doc.ref, { stock: stockDB - productQuantity }) }
         else {
           outOfStock.push({ id: doc.id, ...dataDoc })
         }
       })
-      if (outOfStock.length === 0) {
+ if (outOfStock.length === 0) {
         await batch.commit()
 
         const orderRef = collection(db, "orders")
         const orderAdded = await addDoc(orderRef, objOrder);
         console.log(`el id de su orden es ${orderAdded.id}`)
-        setOrderCreated(true)
-        //agregar  para limpiar el carrito
+        setOrderCreated(true) 
+     
       } else {
         console.log("hay productos q estan fuera de stock") //agregar alarma en ui
       }
+      
     } catch (error) {
-      console.log("error")
-
+      console.log("error pero donde?!")
+ 
     } finally {
       setLoading(false)
+
     }
 
     if (loading) { 
@@ -71,6 +80,8 @@ const checkOut = () => {
       <h1>la orden fue generada correctamente</h1>
     }
   }
+
+  
   return (
     <div>
       <h1>checkOut</h1>
