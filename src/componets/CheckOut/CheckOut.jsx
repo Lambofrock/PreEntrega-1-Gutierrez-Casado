@@ -1,17 +1,18 @@
 import { useState } from "react"
-import { db} from "../../services/firebase" 
-import { WriteBatch, collection, documentId, getDocs, query, where } from "firebase/firestore"
+import { db } from "../../services/firebase"
+import { addDoc, collection, documentId, getDocs, where, WriteBatch  } from "firebase/firestore"
 import { useCart } from "../../hooks/useCart"
+import './CheckOut.css'
 
 
 const checkOut = () => {
-  
+  const [loading, setLoading] = useState(false)
   const [orderCreated, setOrderCreated] = useState(false)
   const { cart, totalQuantity, getTotal } = useCart()
   const total = getTotal()
 
   const createOrder = async () => {
-  
+    setLoading(true)
     try {
       const objOrder = {
         buyer: {
@@ -25,6 +26,7 @@ const checkOut = () => {
         date: new Date()
 
       }
+
       const ids = cart.map((item) => item.id)
       const productRef = collection(db, "ropaHeyPulga")
       const productAddedFromFirestore = await getDocs(
@@ -42,8 +44,10 @@ const checkOut = () => {
         else {
           outOfStock.push({ id: doc.id, ...dataDoc })
         }
-      }); if (outOfStock.length === 0) {
+      })
+      if (outOfStock.length === 0) {
         await batch.commit()
+
         const orderRef = collection(db, "orders")
         const orderAdded = await addDoc(orderRef, objOrder);
         console.log(`el id de su orden es ${orderAdded.id}`)
@@ -52,13 +56,17 @@ const checkOut = () => {
       } else {
         console.log("hay productos q estan fuera de stock") //agregar alarma en ui
       }
+    } catch (error) {
+      console.log("error")
 
-
-    } catch (error) { console.log("error") }
-    finally {
-     
+    } finally {
+      setLoading(false)
     }
-    
+
+    if (loading) { 
+      return <h1>Cargando...</h1>
+    }
+
     if (orderCreated) {
       <h1>la orden fue generada correctamente</h1>
     }
@@ -66,6 +74,8 @@ const checkOut = () => {
   return (
     <div>
       <h1>checkOut</h1>
+
+     
       {/* formulario nombre apellido, direccion,etc */}
       <button onClick={createOrder}>generar ordern</button>
     </div>

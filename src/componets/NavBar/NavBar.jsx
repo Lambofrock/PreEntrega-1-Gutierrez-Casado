@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import CardWidget from "../Cardwidget/CardWidget"
-import { Link,NavLink } from "react-router-dom"
+import {NavLink } from "react-router-dom"
 import './NavBar.css'
 
 function NavBar() {
-//const [navegador,setNavegador] = useState (false);
-//const mostrarNavegador = ()=>   setNavegador("active")
+
 
 
 

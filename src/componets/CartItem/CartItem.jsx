@@ -5,7 +5,7 @@ const CartItem = ({name,quantity,price,img}) => {
     <article>
   
     <div >
-        <h1 className='titulo'>CheckOut</h1>
+        <h1 className='titulo'>Carrito de compras</h1>
         <div className='blanco'>
           <div>
             <h2>{name}</h2>

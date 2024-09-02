@@ -22,7 +22,13 @@
         height: 110px;
     }
     .boton-pagar{
-        display: flex;
-        justify-content: end;
+     margin-inline: 10px;
+    }
+    .pagar{
+        padding: 10px;
+        margin-top: 50px;
+        background-color: white;
+        margin-inline: 15%;
+        border-radius: 10px;
     }
     
