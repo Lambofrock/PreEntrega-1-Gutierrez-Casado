@@ -27,5 +27,10 @@
     padding: 100px;
 }
 .pagar{
+    width: 100px;
     background-color: white;
+    padding: 10px;
+}
+.holanda{
+    background-color: red;
 }

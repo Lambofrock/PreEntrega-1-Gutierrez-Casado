@@ -15,7 +15,7 @@ const ItemDetail = ({ name, img, description, price, stock, id }) => {
   const handleAgregar = () => {
  
     const productObj = {
-      id, name, price,quantity: cont
+      id, name, img , price,quantity: cont
     }
 
     addItem(productObj)

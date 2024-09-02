@@ -12,17 +12,20 @@ const Carrito = () => {
     }
 
     return (
-        <div>
+        <div className='pagar'>
             {cart.map((item) => (
                 <CartItem key={item.id} {...item} />
-            ))}
+            ))} console.log(item )
+            <div className='holanda'>
             <h3>total: $ {total}</h3>
             <div className='pagar'>
                 <button>limpiar carrito</button>
-                <Link type="button" className="btn boton-pagar btn-primary">
+                <Link to="/CheckOut" type="button" className="btn boton-pagar btn-primary">
                     Pagar
                 </Link>
             </div>
+            </div>
+         
 
 
         </div>

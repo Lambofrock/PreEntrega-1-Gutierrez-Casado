@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { db } from '../../services/firebase';
-import { doc, getDoc, QuerySnapshot } from 'firebase/firestore';
+import { doc, getDoc} from 'firebase/firestore';
 
 
 const ItemDetailContainer = () => {
@@ -12,27 +12,19 @@ const ItemDetailContainer = () => {
 
 
 
-/*   useEffect(() => {
-getProductById (id)
-.then ((res)=>{
-  setProduct(res)})
-  
-  }, [id]);
- */
-
-useEffect(() => {
-    getDoc(doc(db,"ropaHeyPulga",id))
-.then ((QuerySnapshot)=>{
-  const product = {id:QuerySnapshot.id,...QuerySnapshot.data()}
-    setProduct(product)
-})
-  }, [id]); 
+  useEffect(() => {
+    getDoc(doc(db, "ropaHeyPulga", id))
+      .then((QuerySnapshot) => {
+        const product = { id: QuerySnapshot.id, ...QuerySnapshot.data() }
+        setProduct(product)
+      })
+  }, []);
 
 
 
   return (
     <div>
-<ItemDetail {...product} />
+      <ItemDetail {...product} />
     </div>
   )
 }

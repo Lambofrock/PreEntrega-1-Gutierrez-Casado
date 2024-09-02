@@ -1,16 +1,17 @@
 import { useState } from "react"
 import { db} from "../../services/firebase" 
 import { WriteBatch, collection, documentId, getDocs, query, where } from "firebase/firestore"
+import { useCart } from "../../hooks/useCart"
 
 
 const checkOut = () => {
-  const [loading, setLoading] = useState(false)
+  
   const [orderCreated, setOrderCreated] = useState(false)
   const { cart, totalQuantity, getTotal } = useCart()
   const total = getTotal()
 
   const createOrder = async () => {
-    setLoading(true)
+  
     try {
       const objOrder = {
         buyer: {
@@ -47,7 +48,7 @@ const checkOut = () => {
         const orderAdded = await addDoc(orderRef, objOrder);
         console.log(`el id de su orden es ${orderAdded.id}`)
         setOrderCreated(true)
-        //agregar wea para limpiar el carrito
+        //agregar  para limpiar el carrito
       } else {
         console.log("hay productos q estan fuera de stock") //agregar alarma en ui
       }
@@ -55,11 +56,9 @@ const checkOut = () => {
 
     } catch (error) { console.log("error") }
     finally {
-      setLoading(false)
+     
     }
-    if (loading) {
-      return <h1>generando orden</h1>
-    }
+    
     if (orderCreated) {
       <h1>la orden fue generada correctamente</h1>
     }

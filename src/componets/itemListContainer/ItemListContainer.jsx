@@ -8,16 +8,13 @@ import { collection, getDocs, query, where } from "firebase/firestore"
 
 const ItemListContainer = ({ greetings }) => {
   const [products, setProducts] = useState([])
-  //const [cargando, setCargando] = useState(true)
-  const { category } = useParams()
-/*   useEffect (()=>{
-    getProducts ().then ((res)=> {
-     setProducts(res)
-    })}, []) 
-    */
+  const { categoryId } = useParams()
+
+
   useEffect(() => {
-    const collectionRef = category
-      ? query(collection(db, "ropaHeyPulga"), where("category", "==", category)) : collection(db, "ropaHeyPulga")
+ 
+    const collectionRef = categoryId
+      ? query(collection(db, "ropaHeyPulga"), where("category", "==", categoryId)) : collection(db, "ropaHeyPulga"); console.log("reading db")
     getDocs(collectionRef)
       .then((querySnapshot) => {
         const products = querySnapshot.docs.map((doc) => {
@@ -25,8 +22,9 @@ const ItemListContainer = ({ greetings }) => {
         })
         setProducts(products)
       })
-  })
- 
+   
+  },[])
+
 
   return (
     <div>
